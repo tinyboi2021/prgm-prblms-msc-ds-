@@ -1,7 +1,7 @@
 import array as arr
 
 usr_input=input("enter no. to inserted in array")
-arr_list=(map(int,usr_input.split()))
+arr_list=list((map(int,usr_input.split())))
 a=arr.array('i',arr_list)
 
 for i in range(0,len(a)):

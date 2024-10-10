@@ -2,8 +2,7 @@ def list_of_frequency(str1):
 	frq_str={}
 
 	for i in set(str1):
-		cnt=str1.count(i)
-		frq_str[i]=cnt
+		frq_str[i]=str1.count(i)
 
 	print(frq_str)
 	
