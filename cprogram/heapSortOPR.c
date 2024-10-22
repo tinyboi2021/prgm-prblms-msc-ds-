@@ -50,25 +50,36 @@ int main(){
 	while(1){
 		
 			printf("\nenter choices to select operation\n");
-			printf(" 1 to insert");
+			printf(" 1 to insert\n");
+			printf(" 2 to delete\n");
 			printf(" 0 to exit");
 			scanf("%d",&choice);
 			
 			switch(choice){
 				case 0:
-					printf("\n program exited");
+					printf("\n program exited\n");
 					exit(0);
 					
 				case 1:
-					printf("enter element to insert");
+					printf("enter element to insert ");
 					n++;
 					scanf("%d",&arr[n-1]);
 					heapSort(arr,n);
 					
 					break;
 					
+				case 2:
+					printf("element %d is deleted",arr[0]);
+					arr[0]=arr[n-1];
+					n--;			
+					
+					heapify(arr,n,0);
+					
+					break;
+					
+					
 				default:
-					printf("invalid input");
+					printf("invalid input\n");
 					break;
 					
 			}
