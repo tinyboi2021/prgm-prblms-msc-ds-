@@ -52,12 +52,12 @@ int main(){
 			printf("\nenter choices to select operation\n");
 			printf(" 1 to insert\n");
 			printf(" 2 to delete\n");
-			printf(" 0 to exit");
+			printf(" 0 to exit\n -->");
 			scanf("%d",&choice);
 			
 			switch(choice){
 				case 0:
-					printf("\n program exited\n");
+					printf("\nprogram exited\n");
 					exit(0);
 					
 				case 1:
@@ -69,21 +69,22 @@ int main(){
 					break;
 					
 				case 2:
-					printf("element %d is deleted",arr[0]);
+					printf("element %d is deleted\n",arr[0]);
 					arr[0]=arr[n-1];
 					n--;			
 					
 					heapify(arr,n,0);
+					heapSort(arr,n);
 					
 					break;
 					
 					
 				default:
-					printf("invalid input\n");
+					printf("\ninvalid input\n");
 					break;
 					
 			}
-		printf("Sorted array is \n");
+		printf("\nSorted array is \n");
 		printArray(arr, n);
 		
 		
