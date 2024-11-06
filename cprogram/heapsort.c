@@ -1,68 +1,52 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-void heapsort(int *arr,int n){
-
-	int i,temp,parent,right,left,max=(n-1);
-	while(max>0){
-		parent=0;
-		while(parent<=max){
-			if(((parent*2)+1) > max)
-					break;
-			
-			left=(parent*2)+1;
-			printf("left = %d \n",left);
-			parent++;
-		}
-		printf("parent is %d \n",--parent);
+void heapify(int arr[],int n,int i){
+	int largest=i;
 	
+	int l=(largest*2)+1;
+	int r=(largest*2)+2;
 	
-		if(((parent*2)+2) <= max)
-			right=(parent*2)+2;
-		else
-			right=-1;
-
-		if(arr[left]<arr[right]){
-			if(arr[left]<arr[parent]){
-				temp=arr[parent];
-				arr[parent]=arr[left];
-				arr[left]=temp;
-			}
-		}else{
-			if(arr[right]<arr[parent]){
-				temp=arr[parent];
-				arr[parent]=arr[right];
-				arr[right]=temp;
-			}
-		}
+	if(l<n&&arr[l]>arr[largest])
+		largest=l;
+	if(r<n&&arr[r]>arr[largest])
+		largest=r;
 		
-		temp=arr[0];
-		arr[0]=arr[max];
-		arr[max]=temp;
-						
-		printf("max --\n");
-		max--;
-				
-	}
-
-	printf("\n the heapsorted result \n");
-	for(i=0;i<n;i++){
-		printf("%d ",arr[i]);
+	if(largest!=i){
+		int temp=arr[largest];
+		arr[largest]=arr[i];
+		arr[i]=temp;
+		
+		heapify(arr,n,largest);
 	}
 }
-
+void heapSort(int arr[],int n){
+	
+	for(int i=n/2-1;i>=0;i--){
+		heapify(arr,n,i);
+	}
+	
+	for(int i=n-1;i>0;i--){
+		int temp=arr[0];
+		arr[0]=arr[i];
+		arr[i]=temp;
+		
+		heapify(arr,i,0);
+	}
+}
 
 void main(){
-	int arr[10]={9,4,3,8,10,2,5},n=7;
-	/*printf("enter a number of elements inside the array");
+	int arr[20],n,i;
+	printf("enter the array number");
 	scanf("%d",&n);
 
-	printf("enter the elements inside the array");
-
-	for(int i=0;i<n;i++){
+	printf("enter array elements");
+	for(i=0;i<n;i++)
 		scanf("%d",&arr[i]);
+	
+	heapSort(arr,n);
 
-	}*/
-	heapsort(arr,n);
+	printf("the sorted elements are \n");
+	for(i=0;i<n;i++)
+		printf(" %d ",arr[i]);
 }
-	
-	

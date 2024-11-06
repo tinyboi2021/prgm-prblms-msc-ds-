@@ -20,7 +20,23 @@ void heapify(int arr[],int n,int i){
 		heapify(arr,n,largest);
 	}
 }
-
+// Function to insert an element into the heap
+void insertHeap(int arr[], int* n, int value) {
+    // Increase heap size and insert the new value at the end
+    (*n)++;
+    arr[*n - 1] = value;
+    
+    // Adjust the heap (heapify up)
+    int i = *n - 1;
+    while (i != 0 && arr[(i - 1) / 2] < arr[i]) {
+        // Swap with parent
+        int temp = arr[(i - 1) / 2];
+        arr[(i - 1) / 2] = arr[i];
+        arr[i] = temp;
+        
+        i = (i - 1) / 2;
+    }
+}
 void deleteHeap(int arr[],int* n){
 	
 	arr[0]=arr[*n-1];
@@ -33,7 +49,7 @@ void deleteHeap(int arr[],int* n){
 
 int main(){
 	int arr[20];
-	int n=0,choice,i;
+	int n=0,choice,i,value;
 	
 	while(1){
 		
@@ -51,10 +67,8 @@ int main(){
 					
 				case 1:
 					printf("enter element to insert ");
-					n++;
-					scanf("%d",&arr[n-1]);
-					for(i=(n/2)-1;i>0;i--);
-						heapify(arr,n,i);
+					scanf("%d",&value);
+					insertHeap(arr,&n,value);
 					
 					break;
 				case 2:
