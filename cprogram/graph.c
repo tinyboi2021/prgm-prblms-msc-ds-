@@ -82,7 +82,7 @@ void display(){
 
 
 void main(){
-	int i,j,edges,u,v;
+	int i,j,edges,u,v,count=0;
 	printf("enter maximum vertexes in the graph\n");
 	scanf("%d",&n);
 	for(i=0;i<n;i++){
@@ -102,7 +102,15 @@ void main(){
 	display(mat);
 
 	printf("the dfs traversal of the tree is \n");
-	DFS(0);	
+	for(i=0;i<n;i++){
+		if(!visited[i]){
+			count++;
+			printf("\nthe component of %d is %d \n",i,count);
+			DFS(i);
+		}
+		
+	}
+	printf("\n total number of disconnected component is %d \n",count);
 	printf("\n the bfs traversla of the tree is \n");
 	BFS(0);
 }
