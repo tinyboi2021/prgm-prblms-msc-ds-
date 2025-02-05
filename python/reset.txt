@@ -1,0 +1,3 @@
+USE mysql;
+UPDATE mysql.user SET Password = PASSWORD('pgcs') WHERE User = 'root';
+FLULSH PRIVELEGES;

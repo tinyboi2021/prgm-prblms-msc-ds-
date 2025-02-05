@@ -7,7 +7,7 @@ print(listEg)
 print("first element in the list\n") 
 print(listEg[[1]][[1]])
 
-names(listEg)<-c("strings","numbers","vetors","logical")
+names(listEg)<-c("strings","numbers","vectors","logical")
 print("after adding names to lists")
 print(listEg)
 
