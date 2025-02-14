@@ -1,15 +1,25 @@
 
+
+setwd("C:\\xampp\\htdocs\\prgm-prblms-msc-ds-\\R\\figures")
+print(getwd())
+png(file="barplotQ1.png")
 items_sold <- c(100, 120, 150, 130, 140, 160, 170, 180, 150, 140, 130, 110)
-
-hist(items_sold, 
-     main="Histogram of Items Sold Each Month",
-     xlab="Month",
-     ylab="Number of Items Sold", 
-     col="skyblue",
-     border="black",
-     xlim=c(0,200), 
-     xaxt="n" 
-)
+months <- month.name
 
 
-axis(1, at=1:12, labels=month.name, las=2)
+
+par(mar=c(7, 4, 4, 2))
+
+
+barplot(items_sold, 
+        names.arg=months, 
+        col="skyblue", 
+        main="Items Sold Each Month", 
+        xlab="Months", 
+        ylab="Number of Items Sold", 
+        border="black", 
+        cex.names=0.8,  
+        las=2)
+dev.off()
+
+

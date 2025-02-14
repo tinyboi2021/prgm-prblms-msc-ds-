@@ -1,9 +1,12 @@
-# Load the mtcars dataset
-data(mtcars)
 
-# Create a matrix scatterplot
+data(mtcars)
+png(file="C:\\xampp\\htdocs\\prgm-prblms-msc-ds-\\R\\figures\\triscatterQ5.png")
+
 pairs(mtcars, 
-      pch=17,                       # Use triangle symbol (pch=17)
-      col="blue",                   # Color of the points
-      main="Matrix Scatterplot of mtcars", # Title of the graph
-      lower.panel=NULL)             # Hide the lower triangle part of the matrix
+      pch=17,                       
+      col="red",                   
+      main="Matrix Scatterplot of mtcars", 
+      lower.panel=NULL)             
+
+
+dev.off()

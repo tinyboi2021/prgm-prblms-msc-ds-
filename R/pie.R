@@ -1,4 +1,5 @@
 
+png(file="C:\\xampp\\htdocs\\prgm-prblms-msc-ds-\\R\\figures\\piechartQ3.png")
 data <- c(20, 59, 23, 60)
 
 
@@ -14,3 +15,5 @@ pie(data,
     col = colors,                  
     radius = 1
 )
+
+dev.off()
