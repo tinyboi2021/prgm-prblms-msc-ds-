@@ -109,3 +109,25 @@ select * from client_master where clientno='c00001';
 
 update product_master set costprice=950 where description='t-shirt';
 select * from product_master;
+
+select * from product_master order by costprice;
+
+create table prd as select productno,description from product_master;
+show tables;
+select * from prd;
+
+select count(state) from salesman_master;
+select * from sales_order,sales_order_details;
+
+select A2.salesmanno,A2.orderno from sales_order_details as A1 inner join sales_order as A2 on A1.orderno=A2.orderno; 
+
+desc sales_order;
+select * from sales_order;
+
+desc salesman_master;
+select * from salesman_master;
+
+
+select salesmanname from salesman_master where salesmanno=(select salesmanno from sales_order where orderstatus='cancelled');
+
+
