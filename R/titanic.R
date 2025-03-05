@@ -25,7 +25,7 @@ print(colSums(is.na(titanTest)))
 print(colSums(is.na(titanTrain)))
 
 titanTest$Fare[is.na(titanTest$Fare)]<median(titanTest$Fare,na.rm = TRUE)
-head(titanTest)
+head(titanTest[,c("PassengerId","Fare")])
 
 age_model <- rpart(Age ~ Pclass + Sex + SibSp + Parch + Fare, 
                    data = titanTrain, 
@@ -33,7 +33,7 @@ age_model <- rpart(Age ~ Pclass + Sex + SibSp + Parch + Fare,
 titanTrain$Age[is.na(titanTrain$Age)] <- predict(age_model, titanTrain[is.na(titanTrain$Age), ])
 head(titanTrain)
 titanTest$Age[is.na(titanTest$Age)] <- predict(age_model, titanTest[is.na(titanTest$Age), ])
-print(titanTest)
+head(titanTest)
 
 titanTrain <- titanTrain[, c("Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare")]
 titanTrain$Survived <- as.factor(titanTrain$Survived)
@@ -53,7 +53,7 @@ predictions <- predict(tree_model, newdata = titanTest)
 
 
 output <- data.frame(PassengerId = titanTest$PassengerId, Survived = predictions)
-print(output)
+head(output)
 write.csv(output, "C:\\xampp\\htdocs\\prgm-prblms-msc-ds-\\R\\datasets\\outputs\\titanic_predictions_ctree.csv", row.names = FALSE)
 
 print("Predictions saved successfully!")
