@@ -1,6 +1,6 @@
 library(corrplot)
 data("iris")
-print(iris)
+head(iris)
 summary(iris)
 str(iris)
 
@@ -19,7 +19,7 @@ sum(is.na(iris))
 
 z_scores <- scale(iris$Sepal.Width)
 outliers <- which(abs(z_scores) > 3)
-print(outliers)
+head(outliers)
 
 Q1 <- quantile(iris$Petal.Width, 0.25)
 print(Q1)
@@ -27,10 +27,10 @@ Q3 <- quantile(iris$Petal.Width, 0.75)
 print(Q3)
 IQR <- Q3 - Q1
 outliers <- iris$Petal.Width[iris$Petal.Width < (Q1 - 1.5 * IQR) | iris$Petal.Width > (Q3 + 1.5 * IQR)]
-print(outliers)
+head(outliers)
 
 
 iris<-iris[,c("Sepal.Length","Sepal.Width","Petal.Length","Petal.Length")]
-print(iris)
+head(iris)
 pca <- prcomp(iris, scale = TRUE)
 summary(pca)

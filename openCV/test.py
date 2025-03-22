@@ -26,6 +26,7 @@ axs[0, 1].imshow(negative_img)
 axs[0, 1].set_title('Negative')
 axs[0, 1].axis('off')
 
+
 axs[1, 0].imshow(log_transformed, cmap='gray')
 axs[1, 0].set_title('Log Transformation')
 axs[1, 0].axis('off')
