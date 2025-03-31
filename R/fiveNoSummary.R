@@ -1,18 +1,20 @@
-data=c(3,55,63,66,88,89,99,232)
-mean(data)
+datas=c(3,55,63,66,88,89,99,232)
+mean(datas)
 
-median(data)
-sd(data) 
-var(data)
+median(datas)
+sd(datas) 
+var(datas)
 
-mean(data,na.rm = TRUE)
+mean(datas,na.rm = TRUE)
 
 
-range(data)
+range(datas)
+boxplot(datas,main="Boxplot of the dataset",ylab="values")
+
 
 library(plyr)
   
-quantile(data)
-quart<-quantile(data)
+quantile(datas)
+quart<-quantile(datas)
 
-IQR(data)
+IQR(datas)

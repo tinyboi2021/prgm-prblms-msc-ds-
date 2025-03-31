@@ -48,7 +48,7 @@ titanTest$Sex <- as.factor(titanTest$Sex)
 tree_model <- ctree(Survived ~ ., data = titanTrain)
 
 
-plot(tree_model)
+
 predictions <- predict(tree_model, newdata = titanTest)
 
 
@@ -57,3 +57,4 @@ head(output)
 write.csv(output, "C:\\xampp\\htdocs\\prgm-prblms-msc-ds-\\R\\datasets\\outputs\\titanic_predictions_ctree.csv", row.names = FALSE)
 
 print("Predictions saved successfully!")
+plot(tree_model)

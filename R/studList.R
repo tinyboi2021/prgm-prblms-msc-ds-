@@ -11,9 +11,6 @@ studList$student_mark <- append(studList$student_mark, 25)
 
 print(studList)
 
-#for(i in 1:length(studList$student_id)){
-#  studList$student_id[i]=studList$student_id[i]+1
-#}
 
 studList$student_id=studList$student_id+1
 
