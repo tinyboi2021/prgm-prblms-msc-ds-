@@ -29,3 +29,4 @@ cm
 
 accuracy <- function(x){sum(diag(x)/(sum(rowSums(x)))) * 100}
 accuracy(cm)
+
